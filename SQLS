@@ -1,0 +1,62 @@
+
+
+SQLS// 
+
+
+//Tabla padres
+CREATE TABLE `id5209742_servertestdata`.`Padres` ( `ID` INT NOT NULL AUTO_INCREMENT , `Codigo_padres` INT NOT NULL , `Apellidos` VARCHAR(50) NOT NULL , `User` VARCHAR(20) NOT NULL , `Pass` VARCHAR(20) NOT NULL , PRIMARY KEY (`ID`), UNIQUE `Codigo_padres` (`Codigo_padres`)) ENGINE = InnoDB;
+
+
+
+//Insertar
+INSERT INTO `Padres` (`Codigo_padres`, `Apellidos`, `User`, `Pass`) VALUES ('123654', 'Castillo Almengor', 'CsAlmengor', 'applepie');
+
+
+
+
+//Tabla Estudiantes
+CREATE TABLE `id5209742_servertestdata`.`Estudiantes` ( `ID` INT NOT NULL AUTO_INCREMENT , `Codigo_alumno` INT NOT NULL ,`Codigo_tutor` INT NOT NULL ,`Nombres` VARCHAR(50) NOT NULL , `Apellidos` VARCHAR(50) NOT NULL , `Grado` VARCHAR(20) NOT NULL , `Edad` INT NOT NULL , PRIMARY KEY (`ID`), UNIQUE `Codigo_alumnos` (`Codigo_alumnos`)) ENGINE = InnoDB;
+
+
+//Insertar
+INSERT INTO `Estudiantes`(`Codigo_alumno`, `Codigo_tutor`, `Nombres`, `Apellidos`, `Grado`, `Edad`) VALUES ('87915','123654','David Adolfo','Castillo Almengor','tresbasico','17')
+INSERT INTO `Estudiantes`(`Codigo_alumno`, `Codigo_tutor`, `Nombres`, `Apellidos`, `Grado`, `Edad`) VALUES ('239874','312412','Jimena Maria','Martines Flores','tresbasico','16')
+INSERT INTO `Estudiantes`(`Codigo_alumno`, `Codigo_tutor`, `Nombres`, `Apellidos`, `Grado`, `Edad`) VALUES ('78326','129048','Gerardo Renato','Jimenes Juarez','unobasico','15')
+
+
+//Tabla de feedInformativo
+
+CREATE TABLE `id5209742_servertestdata`.`FeedInformativo` ( `ID` INT NOT NULL AUTO_INCREMENT , `Titulo` VARCHAR(200) NOT NULL , `Descripcion` VARCHAR(500) NOT NULL , `Imagen` VARCHAR(50) NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;
+
+
+
+
+//Tabla de Reportes
+
+CREATE TABLE `id5209742_servertestdata`.`Reportes` ( `ID` INT NOT NULL AUTO_INCREMENT , `Codigo_alumno` INT NOT NULL , `Titulo` VARCHAR(100) NOT NULL , `Descripcion` VARCHAR(200) NOT NULL, `Fecha_reporte` VARCHAR(50) NOT NULL , PRIMARY KEY (`ID`)) ENGINE = InnoDB;
+
+
+
+//Insertar en Reportes
+
+INSERT INTO `Reportes`(`Codigo_alumno`, `Titulo`, `Descripcion`) VALUES ('','','')
+
+
+//Tabla de Avisos Importantes
+
+CREATE TABLE `id5209742_servertestdata`.`avisos_Importantes` (`ID` INT NOT NULL AUTO_INCREMENT , `Titulo` VARCHAR(100) NOT NULL , `Descripcion` VARCHAR(200) NOT NULL, PRIMARY KEY (`ID`)) ENGINE = InnoDB;
+
+//Insertar avisos
+INSERT INTO `avisos_Importantes`(`Titulo`, `Descripcion`) VALUES ('','')
+
+
+//Tabla de Tareas
+
+
+CREATE TABLE `id5209742_servertestdata`.`tareas_tresbasico` (`ID` INT NOT NULL AUTO_INCREMENT, `codigo_Catedratico` INT NOT NULL, `Materia` VARCHAR(100) NOT NULL, `Tarea` VARCHAR(400) NOT NULL, `FechaEmision` VARCHAR(50) NOT NULL, `FechaEntrega` VARCHAR(50) NOT NULL, PRIMARY KEY (`ID`)) ENGINE = InnoDB;
+
+
+
+//Insertar en Tareas
+
+INSERT INTO `tareas_{$Grado}`(`codigo_Catedratico`, `Materia`, `Tarea`, `FechaEmision`, `FechaEntrega`) VALUES ('','','','','')

@@ -1,0 +1,254 @@
+
+/*font-family: 'Cagliostro', sans-serif;*/
+
+
+.formulario{
+    background-color: #F1FAEF;
+}
+.cuerpo{
+    min-width: 750px;
+    max-width: 1340px;	
+}
+.Isesion{
+	float: left;
+    position: relative;
+    top: 90;
+    margin: 20px 0px 0px 30%;
+}
+
+.Isesion a{
+	margin: 0px 8px;
+}
+.menuu {
+    list-style: none;
+    width: 340px;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #CCEAEF;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;    
+    -webkit-margin-before: 0px;
+    -webkit-padding-start: 0px;
+}
+
+.menuu li {
+    width: 100%;
+    margin: 2px 1px;
+    padding: 5px 0px;
+    /* background: #F48345; */
+    border-radius: 5px;
+    font-family: 'Cagliostro', sans-serif;
+}
+
+.speciallink{
+	padding: 20px 20px 20px 40px;
+}
+
+.special{
+    padding: 20px;
+}
+
+.account img{
+    padding: 20px 20px 0px 45px;
+}
+
+.account span {
+    bottom: 30px;
+    right: 20px;
+}
+
+.account a{
+    padding: 0px;
+    position: relative;
+    right: 50px;
+    color: #e78649;
+}
+
+.inpts{
+	margin: 5px 10px;
+	border-width: 0px 0px 1px 0px;
+    border-color: #E98040;
+}
+.backinpt{
+     background-color: #F1FAEF;
+}
+.bttns{
+	background: #92B492;
+	border-width: 2px;
+	border-radius: 5px;
+	padding: 8px 15px;
+}
+.homework {
+    width: 450px;
+}
+
+.tblTits{
+	width: 130px;
+    font-size: 20px;
+
+}
+
+.titulo{
+	width: 98%;
+	display: inline-flex;
+    background: darkseagreen;
+    margin: 0;
+    padding: 30 10;
+}
+.titulo h1{
+    min-width: 250;
+    max-width: 500;
+}
+.logo{
+	width: 350px;
+    height: 100px;
+    margin: 30 20 0 0;
+    position: relative;
+    left: 28%;
+}
+.cuadroNotas{
+    margin: 35px;
+}
+.cuadroHW{
+    margin: 10px 35px;
+}
+.cuadroHW table tbody tr{
+
+}
+.cuadroHW table tbody tr td{
+
+}
+.codinpt{
+	position: relative;
+    left: 40px;
+    font-size: 17px;
+}
+.editnpt{
+    position: relative;
+    font-size: 17px;
+}
+.codbtn{
+	position: relative;
+    left: 70px;
+}
+
+.frm{
+    margin: 10px 30px;
+    width: 500px;
+    position: relative;
+    left: 20%;
+}
+.frm b{
+	font-size: 26px;
+	display: block;
+	margin-bottom: 15px;
+}
+.cod{
+	display: inline-block;
+    margin-right: 16px;
+}
+
+.menuu span{
+	    position: relative;
+    bottom: 22px;
+    font-size: 25px;
+}
+
+.contenido{
+	position: relative;
+    top: 70px;
+    left: 350px;
+    width: 760px;
+    margin: 0px;
+}
+.selectable{
+    margin: 5px 0px 5px 5px;
+    border-width: 0px 0px 1px 0px;
+    border-color: #E98040;
+    font-size: 20px;
+}
+.gradeinpt{
+    width:50px;
+}
+.notasTabla{
+        border-collapse: collapse;
+        border: solid 1px black;
+}
+.notasTabla tr td{
+        border-collapse: collapse;
+        border: solid 1px black;
+        border-bottom: none;
+}
+
+.tablilla{
+    position: relative;
+    top: 50px;
+    left: 350px;
+}
+
+.list {
+    list-style: none;
+}
+
+.list li{
+    margin: 5px;
+}
+
+.tittle{
+    font-size: 25px;
+    margin: 5px;
+    text-decoration: underline;
+}
+.conttnt{
+        margin: 10px;
+}
+
+a {
+	padding: 40px 40px 20px 40px;
+	text-decoration: none;
+}
+a:link {
+    color: black;
+}
+
+/* visited link */
+a:visited {
+    color: black;
+}
+
+/* mouse over link */
+li:hover {
+    background: #93CDD5;
+}
+
+
+
+
+
+
+@media screen and (min-width: 1400px ){
+	.Isesion{
+		margin: 20px 0px 0px 30%;
+	}
+}
+
+@media screen and (min-width: 1000px ){
+	.Isesion{
+		margin: 20px 0px 0px 15%;
+	}
+
+}
+@media screen and (max-width: 600px ){
+	.Isesion{
+		margin: 20px 0px 0px 8%;
+	}
+}
+@media screen and (min-width: 400px ){
+	.Isesion{
+		margin: 20px 0px 0px 15%;
+	}
+}
