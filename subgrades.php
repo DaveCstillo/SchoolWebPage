@@ -46,31 +46,13 @@
 
 	}
 
-
-
-
-		
-		
-		// $apellidos = $_GET["apellidos"];
-		// $nota = $_GET["nota"];
- 		
- 	// 	//mysql_select_db($db, $con) or die ("No se encuentra la base de datos");
-
- 	// 	$query = "SELECT * FROM Estudiantes WHERE Apellidos='{$apellidos}'";
- 	// 	$result = $con->query($query);
-
- 	// 	echo "Listado... <br/> <table>";
- 	// 	echo "<tr><td><span class='tit' >Nombres:</span> </td><td><span class='tit' >Apellidos:</span></td></tr>";
-
- 	// 	if($fila = mysqli_fetch_array($result)){
-
-
- 	// 		echo "<tr>";
- 	// 		echo "<td> $fila[Nombres] </td>";
- 	// 		echo "<td> $fila[Apellidos] </td> ";
- 	// 		echo "</tr>";
- 	// 	}
- 	
-
-
 ?>
+
+<!--
+*************************************************************************************************
+*************************************************************************************************
+********************************Developed by: David Castillo*************************************
+********************************For: Vidal.GT Enterprise*****************************************
+******************************************2018*******************************************************
+*************************************************************************************************
+-->
