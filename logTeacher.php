@@ -1,11 +1,15 @@
 <?php
+session_start();
+
+
 
  		$host = "localhost";
  		$user = "id5209742_davecstillo";
  		$pw = "holahahaz";
  		$db = "id5209742_servertestdata";
 $con = new mysqli($host, $user, $pw, $db) or die ("No se pudo conectar con la base de datos");
-session_start();
+
+
 $errorMsg="";
 $validUser = false;
 	if(isset($_POST["user"]) && isset($_POST["pass"])){
@@ -27,10 +31,13 @@ $validUser = false;
  				$_SESSION['user'] = $User;
  				$_SESSION['codMaestro'] = $registro['Codigo_catedratico'];
  				$puesto = $registro['Puesto'];
+ 				$_SESSION['start'] = time();
+ 				$_SESSION['expire'] = $_SESSION['start'] + (10*60);
 
 			}else{
 				$validUser = false;
 			}	
+			$_SESSION['loggedin'] = $validUser;
 			mysqli_close($con);
 			
 

@@ -1,11 +1,25 @@
-<!--
-*************************************************************************************************
-*************************************************************************************************
-********************************Developed by: David Castillo*************************************
-********************************For: Vidal.GT Enterprise*****************************************
-******************************************2018*******************************************************
-*************************************************************************************************
--->
+<?php
+session_start();
+
+if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] = true){
+
+}else{
+	echo "La pagina es solo para usuarios.";
+	echo "<a href='index.php'>Login</a>";
+	exit;
+
+}
+
+$now = time();
+
+if($now > $_SESSION['expire']){
+	session_destroy();
+	echo "su session ha expirado";
+	echo "<a href='index.php'>Login</a>";
+	exit;
+}
+
+?>
 </!DOCTYPE html>
 <html>
 <head>
@@ -29,11 +43,11 @@
 		</li>
 		<li><a href="homeC.php"><img src="res/drawable-xhdpi/ic_home.png"><span>HOME</span></a></li>
 
-		<li><a href="alumnos.php"><img src="res/drawable-xhdpi/ic_students.png"><span>Alumnos</span></a></li>
+		<li><a href="alumnos.php"><img src="res/drawable-xhdpi/ic_student_face.png"><span>Alumnos</span></a></li>
 
 		<li><a href="reportes.html"><img src="res/drawable-xhdpi/ic_assignment.png"><span>Reportes</span></a></li>
 
-		<li><a href="cafeteria.php" class="special"><img src="res/drawable-xhdpi/ic_date_range.png"><span>Menu de la Cafeter&iacute;a</span></a></li>
+		<li><a href="cafeteria.php" class="special"><img src="res/drawable-xhdpi/ic_cafeteria.png"><span>Menu de la Cafeter&iacute;a</span></a></li>
 		
 		<li><a href="avisos.php" class="speciallink"><img src="res/drawable-xhdpi/ic_date_range.png"><span>Avisos Importantes</span></a></li>
 		<li><a href="#" class="speciallink"><img src="res/drawable-xhdpi/ic_message.png"><span>Mensajes de padres</span></a></li>
@@ -137,3 +151,11 @@ if(isset($_GET["codAlm"])){
 
 </body>
 </html>
+<!--
+*************************************************************************************************
+*************************************************************************************************
+********************************Developed by: David Castillo*************************************
+********************************For: Vidal.GT Enterprise*****************************************
+******************************************2018*******************************************************
+*************************************************************************************************
+-->
