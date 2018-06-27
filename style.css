@@ -39,7 +39,7 @@
     left: 0;
     background-color: #CCEAEF;
     overflow-x: hidden;
-    padding-top: 60px;
+    /*padding-top: 60px;*/
     transition: 0.5s;    
     -webkit-margin-before: 0px;
     -webkit-padding-start: 0px;
@@ -55,15 +55,15 @@
 }
 
 .speciallink{
-	padding: 20px 20px 20px 40px;
+	padding: 20px 20px 20px 10px;
 }
 
 .special{
-    padding: 20px;
+    padding: 10px;
 }
 
 .account img{
-    padding: 20px 20px 0px 45px;
+    padding: 20px 20px 0px 10px;
 }
 
 .account span {
@@ -218,7 +218,7 @@
 }
 
 a {
-	padding: 40px 40px 20px 40px;
+	padding: 40px 40px 20px 10px;
 	text-decoration: none;
 }
 a:link {

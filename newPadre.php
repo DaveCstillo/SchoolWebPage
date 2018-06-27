@@ -19,15 +19,7 @@ if($now > $_SESSION['expire']){
 	exit;
 }
 
-
-			$host = "localhost";
- 			$user = "id5209742_davecstillo";
- 			$pw = "holahahaz";
- 			$db = "id5209742_servertestdata";
-
- 		$con = new mysqli($host, $user, $pw, $db) or die ("No se pudo conectar con la base de datos");
-		
-		?>
+?>
 </!DOCTYPE html>
 <html>
 <head>
@@ -53,13 +45,13 @@ if($now > $_SESSION['expire']){
 
 		<li><a href="alumnos.php"><img src="res/drawable-xhdpi/ic_student_face.png"><span>Alumnos</span></a></li>
 		<li><a href="profesores.php"><img src="res/drawable-xhdpi/ic_teachers.png"><span>Profesores</span></a></li>
+		<li><a href="padres.php"><img src="res/drawable-xhdpi/ic_supervisor.png"><span>Padres</span></a></li>
 
-		<li><a href="reportes.php"><img src="res/drawable-xhdpi/ic_assignment.png"><span>Reportes</span></a></li>
-
+		<li><a href="reportes.html"><img src="res/drawable-xhdpi/ic_assignment.png"><span>Reportes</span></a></li>
 
 		<li><a href="cafeteria.php" class="special"><img src="res/drawable-xhdpi/ic_cafeteria.png"><span>Menu de la Cafeter&iacute;a</span></a></li>
-
-		<li><a href="#" class="speciallink"><img src="res/drawable-xhdpi/ic_date_range.png"><span>Avisos Importantes</span></a></li>
+		
+		<li><a href="avisos.php" class="speciallink"><img src="res/drawable-xhdpi/ic_date_range.png"><span>Avisos Importantes</span></a></li>
 		<li><a href="#" class="speciallink"><img src="res/drawable-xhdpi/ic_message.png"><span>Mensajes de padres</span></a></li>
 	</ul>
 
@@ -69,24 +61,57 @@ if($now > $_SESSION['expire']){
 	<img src="LogoWaldorf.png" class="logo">
 
 	<div>
-		<form action="avisando.php" method="POST">
-			<div>
-				<b>
-					Avisos Importantes
-				</b>
-				<h4>Nuevo Aviso:</h4>
-				<p>
-					<h2>Descripcion Breve</h2>
-					<input type="text" name="titulo"/>
-					<h2>Detalle del aviso</h2>
-					<textarea cols="40" rows="5" type="text" name="descripcion"></textarea>
-				</p>
-				<input type="submit" value="Aceptar" class="bttns">
-			</div>
-		</form>
-	</div>
-		</div>
+		<form action="" method='post'>
+		<br/> <div class='notasTabla'>
+			<ul class='list'>
+				<li><span class='tittle' >Codigo Padre:</span></li>
+				<li><input type='text' class='conttnt inpts'name='codPadre' /> </li>
+				<li><span class='tittle' >Apellidos:</span></li>
+				<li><input type='text' class='conttnt inpts'name='PadreLName' /> </li>
+				<li><span class='tittle' >Usuario:</span></li>
+				<li><input type='text' class='conttnt inpts'name='PadreUser' /> </li>
+				<li><span class='tittle' >Contraseña:</span></li>
+				<li><input type='text' class='conttnt inpts'name='PadrePass' /> </li>
 
+				<input type='submit' class='bttns codbtn' title='Ingresar Padre' value='Aceptar'>
+			</ul>
+		</div>
+	</form>
+	</div>
+	<?php
+			$host = "localhost";
+ 			$user = "id5209742_davecstillo";
+ 			$pw = "holahahaz";
+ 			$db = "id5209742_servertestdata";
+	
+	if(isset($_POST["codPadre"]) && isset($_POST["PadreLName"]) && isset($_POST["PadreUser"]) && isset($_POST["PadrePass"])){
+
+		$codigo = $_POST["codPadre"];
+		$apellidos = $_POST["PadreLName"];
+		$usuario = $_POST["PadreUser"];
+		$password = $_POST["PadrePass"];
+
+
+ 		$con = new mysqli($host, $user, $pw, $db) or die ("No se pudo conectar con la base de datos");
+
+ 		$queryPadre = "INSERT INTO `Padres` (`Codigo_padres`, `Apellidos`, `User`, `Pass`) VALUES ('{$codigo}', '{$apellidos}', '{$usuario}', '{$password}');'";
+
+
+ 		$result = $con->query($queryPadre);
+
+ 		if($result){
+ 			header("Location: /padres.php");die();
+ 		}else{
+ 			echo "No se ingreso";
+ 		}
+ 	
+	}else {
+		echo "Faltan algunos datos";
+	}
+ 
+
+		?>
+</div>
 		<p>
 
 		</p>

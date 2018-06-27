@@ -45,7 +45,6 @@ if($now > $_SESSION['expire']){
 
 		<li><a href="alumnos.php"><img src="res/drawable-xhdpi/ic_student_face.png"><span>Alumnos</span></a></li>
 		<li><a href="profesores.php"><img src="res/drawable-xhdpi/ic_teachers.png"><span>Profesores</span></a></li>
-		<li><a href="padres.php"><img src="res/drawable-xhdpi/ic_supervisor.png"><span>Padres</span></a></li>
 
 		<li><a href="reportes.html"><img src="res/drawable-xhdpi/ic_assignment.png"><span>Reportes</span></a></li>
 
@@ -71,64 +70,44 @@ if($now > $_SESSION['expire']){
 
 
  		
-if(isset($_GET["codAlm"])){
-		$codAlm = $_GET["codAlm"];
+if(isset($_GET["codProfe"])){
+		$codProfe = $_GET["codProfe"];
 		
  		$con = new mysqli($host, $user, $pw, $db) or die ("No se pudo conectar con la base de datos");
  		//mysql_select_db($db, $con) or die ("No se encuentra la base de datos");
 //session_start();
- 		$queryAlm = "SELECT * FROM Estudiantes WHERE Codigo_alumno='{$codAlm}'";
+ 		$queryProfe = "SELECT * FROM Personal WHERE Codigo_catedratico='{$codProfe}'";
 
 
- 		$result = $con->query($queryAlm);
+ 		$result = $con->query($queryProfe);
 
  		while($fila = mysqli_fetch_array($result)){
 
- 		$queryTut = "SELECT * FROM Padres";
- 		$qresult = $con->query($queryTut);
 
-
-
- 		echo "<form action='updtAlm.php' method='post'>";
+ 		echo "<form action='updtProfe.php' method='post'>";
  		echo "<br/> <div class='notasTabla'>";
  				echo "<ul class='list'>";
  				
- 				echo 	"<li><span class='tittle' >Codigo_alumno:</span></li>";
- 				echo 	"<li><span class='conttnt inpts'>$fila[Codigo_alumno]</span> </li>";
- 				echo 	"<li><input type='hidden' value='$fila[Codigo_alumno]' class='editnpt'name='codAlumno' /> </li>";
+ 				echo 	"<li><span class='tittle' >Codigo Catedratico:</span></li>";
+ 				echo 	"<li><span class='conttnt inpts'>$fila[Codigo_catedratico]</span> </li>";
+ 				echo 	"<li><input type='hidden' value='$fila[Codigo_catedratico]' class='editnpt'name='codProfesor' /> </li>";
  				
  				echo 	"<li><span class='tittle' >Nombres:</span> </li>";
- 				echo "<li><input type='text' value='$fila[Nombres]' class='conttnt inpts'name='AlumnoName' /> </li>";
+ 				echo "<li><input type='text' value='$fila[Nombres]' class='conttnt inpts'name='ProfeName' /> </li>";
  				
  				echo 	"<li><span class='tittle' >Apellidos:</span></li>";
- 				echo "<li><input type='text' value='$fila[Apellidos]' class='conttnt inpts'name='AlumnoLName' /> </li> ";
+ 				echo "<li><input type='text' value='$fila[Apellidos]' class='conttnt inpts'name='ProfeLName' /> </li> ";
  				
- 				echo 	"<li><span class='tittle' >Grado:</span></li>";
- 				 		echo "<select name='clases' class='selectable'>";
-							echo "<option value='nada'>Seleccione clase</option>";
-							echo "<option value='prepa'>Preparatoria</option>";
-							echo "<option value='unoprimaria'>Primero Primaria</option>";
-							echo "<option value='dosprimaria'>Segundo Primaria</option>";
-							echo "<option value='tresprimaria'>Tercero Primaria</option>";
-							echo "<option value='cuatroprimaria'>Cuarto Primaria</option>";
-							echo "<option value='cincoprimaria'>Quinto Primaria</option>";
-							echo "<option value='seisprimaria'>Sexto Primaria</option>";
-							echo "<option value='unobasico'>Primero Basico</option>";
-							echo "<option value='dosbasico'>Segundo Basico</option>";
-							echo "<option value='tresbasico'>Tercero Basico</option>";
-						echo "</select>";
+ 				echo 	"<li><span class='tittle' >Puesto:</span></li>";
+ 				echo "<li><input type='text' value='$fila[Puesto]' class='conttnt inpts'name='ProfePuesto' /> </li> ";
+ 				echo 	"<li><span class='tittle' >Cargo:</span></li>";
+ 				echo "<li><input type='text' value='$fila[Cargo]' class='conttnt inpts'name='ProfeCargo' /> </li> ";
  				
- 				echo 	"<li><span class='tittle' >Edad:</span></li>";
- 				echo "<li><input type='text' value='$fila[Edad]' class='conttnt inpts'name='AlumnoEdad' /> </li> ";
+ 				echo 	"<li><span class='tittle' >Mail:</span></li>";
+ 				echo "<li><input type='text' value='$fila[Mail]' class='conttnt inpts'name='ProfeMail' /> </li> ";
  				
- 				echo 	"<li><span class='tittle' >Codigo_tutor:</span></li>";
-			echo "<li><select name='codTutor' class='selectable'>";
-
- 			while($res = mysqli_fetch_array($qresult)){
-				
-			echo "<option value='$res[Codigo_padres]' name='codigoP'>$res[Codigo_padres]</option>";
- 			}
-			echo "</select></li>";
+ 				echo 	"<li><span class='tittle' >Telefono:</span></li>";
+ 				echo "<li><input type='text' value='$fila[Telefono]' class='conttnt inpts'name='ProfeTelefono' /> </li> ";
 
  				echo "</ul>";
 
@@ -136,7 +115,7 @@ if(isset($_GET["codAlm"])){
  			}
 			
  		echo "</div>";
- 		echo "<input type='submit' class='bttns codbtn' title='Modificar Alumno' value='Aceptar'>";
+ 		echo "<input type='submit' class='bttns codbtn' title='Modificar Profesor' value='Aceptar'>";
  		echo "</form>";
  		}
  	

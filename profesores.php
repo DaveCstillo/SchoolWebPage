@@ -19,15 +19,7 @@ if($now > $_SESSION['expire']){
 	exit;
 }
 
-
-			$host = "localhost";
- 			$user = "id5209742_davecstillo";
- 			$pw = "holahahaz";
- 			$db = "id5209742_servertestdata";
-
- 		$con = new mysqli($host, $user, $pw, $db) or die ("No se pudo conectar con la base de datos");
-		
-		?>
+?>
 </!DOCTYPE html>
 <html>
 <head>
@@ -52,14 +44,15 @@ if($now > $_SESSION['expire']){
 		<li><a href="homeC.php"><img src="res/drawable-xhdpi/ic_home.png"><span>HOME</span></a></li>
 
 		<li><a href="alumnos.php"><img src="res/drawable-xhdpi/ic_student_face.png"><span>Alumnos</span></a></li>
-		<li><a href="profesores.php"><img src="res/drawable-xhdpi/ic_teachers.png"><span>Profesores</span></a></li>
+		<li><a href="#"><img src="res/drawable-xhdpi/ic_teachers.png"><span>Profesores</span></a></li>
+		<li><a href="padres.php"><img src="res/drawable-xhdpi/ic_supervisor.png"><span>Padres</span></a></li>
 
 		<li><a href="reportes.php"><img src="res/drawable-xhdpi/ic_assignment.png"><span>Reportes</span></a></li>
 
 
 		<li><a href="cafeteria.php" class="special"><img src="res/drawable-xhdpi/ic_cafeteria.png"><span>Menu de la Cafeter&iacute;a</span></a></li>
 
-		<li><a href="#" class="speciallink"><img src="res/drawable-xhdpi/ic_date_range.png"><span>Avisos Importantes</span></a></li>
+		<li><a href="avisos.php" class="speciallink"><img src="res/drawable-xhdpi/ic_date_range.png"><span>Avisos Importantes</span></a></li>
 		<li><a href="#" class="speciallink"><img src="res/drawable-xhdpi/ic_message.png"><span>Mensajes de padres</span></a></li>
 	</ul>
 
@@ -68,24 +61,66 @@ if($now > $_SESSION['expire']){
 		
 	<img src="LogoWaldorf.png" class="logo">
 
-	<div>
-		<form action="avisando.php" method="POST">
-			<div>
-				<b>
-					Avisos Importantes
-				</b>
-				<h4>Nuevo Aviso:</h4>
-				<p>
-					<h2>Descripcion Breve</h2>
-					<input type="text" name="titulo"/>
-					<h2>Detalle del aviso</h2>
-					<textarea cols="40" rows="5" type="text" name="descripcion"></textarea>
-				</p>
-				<input type="submit" value="Aceptar" class="bttns">
-			</div>
-		</form>
-	</div>
+	
 		</div>
+	<?php
+			$host = "localhost";
+ 			$user = "id5209742_davecstillo";
+ 			$pw = "holahahaz";
+ 			$db = "id5209742_servertestdata";
+
+ 		$con = new mysqli($host, $user, $pw, $db) or die ("No se pudo conectar con la base de datos");
+ 
+  		$queryAlm = "SELECT * FROM Personal";
+
+
+ 		$result = $con->query($queryAlm);
+?>
+<br/>
+<h1 class="tittle tablilla">Catedraticos</h1>
+<br/>
+<br/>
+ 		<br/> <table class="tablilla">
+ 				<tr>
+ 					<td><span class="tit" >Codigo:</span></td>
+ 					<td><span class="tit" >Nombres:</span> </td>
+ 					<td><span class="tit" >Apellidos:</span></td>
+ 					<td><span class="tit" >Puesto:</span></td>
+ 					<td><span class="tit" >Cargo:</span></td>
+ 					<td><span class="tit" >Usuario:</span></td>
+ 					<td><span class="tit" >E-MAIL:</span></td>
+ 					<td><span class="tit" >Telefono:</span></td>
+
+ 				</tr>
+
+
+
+
+<?php
+ 		while($fila = mysqli_fetch_array($result)){
+
+ 		
+ 		echo"<form action='EditProfe.php' method='get' class='tablilla'>";
+ 	
+ 			echo "<tr>";
+ 			echo "<td><span> $fila[Codigo_catedratico] </span> </td>";
+ 			echo "<td><span> $fila[Nombres] </span> </td>";
+ 			echo "<td><span> $fila[Apellidos]</span> </td> ";
+ 			echo "<td><span> $fila[Puesto]</span> </td> ";
+ 			echo "<td><span> $fila[Cargo]</span> </td> ";
+ 			echo "<td><span> $fila[USER]</span> </td> ";
+ 			echo "<td><span> $fila[Mail]</span> </td> ";
+ 			echo "<td><span> $fila[Telefono]</span></td>";
+ 			echo "<td><input type='submit' value='Editar' class='bttns'></td>";
+ 			echo "<input type='hidden' name='codProfe' value='$fila[Codigo_catedratico]'>";
+ 			echo "</tr>";
+ 			echo '</form>';
+ 		}
+ 		
+ 		echo "</table>";
+ 	
+
+		?>
 
 		<p>
 
