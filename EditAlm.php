@@ -46,12 +46,15 @@ if($now > $_SESSION['expire']){
 		<li><a href="alumnos.php"><img src="res/drawable-xhdpi/ic_student_face.png"><span>Alumnos</span></a></li>
 		<li><a href="profesores.php"><img src="res/drawable-xhdpi/ic_teachers.png"><span>Profesores</span></a></li>
 		<li><a href="padres.php"><img src="res/drawable-xhdpi/ic_supervisor.png"><span>Padres</span></a></li>
+		<li><a href="clases.php"><img src="res/drawable-xhdpi/ic_book.png"><span>Clases</span></a></li>
 
-		<li><a href="reportes.html"><img src="res/drawable-xhdpi/ic_assignment.png"><span>Reportes</span></a></li>
+		<li><a href="reportes.php"><img src="res/drawable-xhdpi/ic_assignment.png"><span>Reportes</span></a></li>
 
 		<li><a href="cafeteria.php" class="special"><img src="res/drawable-xhdpi/ic_cafeteria.png"><span>Menu de la Cafeter&iacute;a</span></a></li>
-		
+
+
 		<li><a href="avisos.php" class="speciallink"><img src="res/drawable-xhdpi/ic_date_range.png"><span>Avisos Importantes</span></a></li>
+
 		<li><a href="#" class="speciallink"><img src="res/drawable-xhdpi/ic_message.png"><span>Mensajes de padres</span></a></li>
 	</ul>
 
@@ -74,9 +77,6 @@ if($now > $_SESSION['expire']){
 if(isset($_GET["codAlm"])){
 		$codAlm = $_GET["codAlm"];
 		
- 		$con = new mysqli($host, $user, $pw, $db) or die ("No se pudo conectar con la base de datos");
- 		//mysql_select_db($db, $con) or die ("No se encuentra la base de datos");
-//session_start();
  		$queryAlm = "SELECT * FROM Estudiantes WHERE Codigo_alumno='{$codAlm}'";
 
 
@@ -91,9 +91,9 @@ if(isset($_GET["codAlm"])){
 
  		echo "<form action='updtAlm.php' method='post'>";
  		echo "<br/> <div class='notasTabla'>";
- 				echo "<ul class='list'>";
+ 				echo "<ul class='listalm'>";
  				
- 				echo 	"<li><span class='tittle' >Codigo_alumno:</span></li>";
+ 				echo 	"<li><span class='tittle' >Codigo del alumno:</span></li>";
  				echo 	"<li><span class='conttnt inpts'>$fila[Codigo_alumno]</span> </li>";
  				echo 	"<li><input type='hidden' value='$fila[Codigo_alumno]' class='editnpt'name='codAlumno' /> </li>";
  				
@@ -104,7 +104,7 @@ if(isset($_GET["codAlm"])){
  				echo "<li><input type='text' value='$fila[Apellidos]' class='conttnt inpts'name='AlumnoLName' /> </li> ";
  				
  				echo 	"<li><span class='tittle' >Grado:</span></li>";
- 				 		echo "<select name='clases' class='selectable'>";
+ 				 		echo "<li><select name='clases' class='selectable'>";
 							echo "<option value='nada'>Seleccione clase</option>";
 							echo "<option value='prepa'>Preparatoria</option>";
 							echo "<option value='unoprimaria'>Primero Primaria</option>";
@@ -116,17 +116,19 @@ if(isset($_GET["codAlm"])){
 							echo "<option value='unobasico'>Primero Basico</option>";
 							echo "<option value='dosbasico'>Segundo Basico</option>";
 							echo "<option value='tresbasico'>Tercero Basico</option>";
-						echo "</select>";
+						echo "</select></li>";
  				
  				echo 	"<li><span class='tittle' >Edad:</span></li>";
  				echo "<li><input type='text' value='$fila[Edad]' class='conttnt inpts'name='AlumnoEdad' /> </li> ";
  				
- 				echo 	"<li><span class='tittle' >Codigo_tutor:</span></li>";
+ 				echo 	"<li><span class='tittle' >Tutor:</span></li>";
 			echo "<li><select name='codTutor' class='selectable'>";
 
  			while($res = mysqli_fetch_array($qresult)){
+
+ 				$tutor = $res['Codigo_padres'] . " - " . $res['Apellidos'];
 				
-			echo "<option value='$res[Codigo_padres]' name='codigoP'>$res[Codigo_padres]</option>";
+			echo "<option value='$res[Codigo_padres]' name='codigoP'>$tutor</option>";
  			}
 			echo "</select></li>";
 

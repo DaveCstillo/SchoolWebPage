@@ -33,6 +33,7 @@ if($now > $_SESSION['expire']){
 
 	<ul class="menuu">
 
+		
 		<li class="account">
 			<img src="res/drawable-xhdpi/ic_account_circle.png">
 			<span><?php session_start();
@@ -50,10 +51,11 @@ if($now > $_SESSION['expire']){
 
 		<li><a href="reportes.php"><img src="res/drawable-xhdpi/ic_assignment.png"><span>Reportes</span></a></li>
 
-
 		<li><a href="cafeteria.php" class="special"><img src="res/drawable-xhdpi/ic_cafeteria.png"><span>Menu de la Cafeter&iacute;a</span></a></li>
 
+
 		<li><a href="avisos.php" class="speciallink"><img src="res/drawable-xhdpi/ic_date_range.png"><span>Avisos Importantes</span></a></li>
+
 		<li><a href="#" class="speciallink"><img src="res/drawable-xhdpi/ic_message.png"><span>Mensajes de padres</span></a></li>
 	</ul>
 

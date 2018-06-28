@@ -46,12 +46,15 @@ if($now > $_SESSION['expire']){
 		<li><a href="alumnos.php"><img src="res/drawable-xhdpi/ic_student_face.png"><span>Alumnos</span></a></li>
 		<li><a href="profesores.php"><img src="res/drawable-xhdpi/ic_teachers.png"><span>Profesores</span></a></li>
 		<li><a href="padres.php"><img src="res/drawable-xhdpi/ic_supervisor.png"><span>Padres</span></a></li>
+		<li><a href="clases.php"><img src="res/drawable-xhdpi/ic_book.png"><span>Clases</span></a></li>
 
-		<li><a href="reportes.html"><img src="res/drawable-xhdpi/ic_assignment.png"><span>Reportes</span></a></li>
+		<li><a href="reportes.php"><img src="res/drawable-xhdpi/ic_assignment.png"><span>Reportes</span></a></li>
 
 		<li><a href="cafeteria.php" class="special"><img src="res/drawable-xhdpi/ic_cafeteria.png"><span>Menu de la Cafeter&iacute;a</span></a></li>
-		
+
+
 		<li><a href="avisos.php" class="speciallink"><img src="res/drawable-xhdpi/ic_date_range.png"><span>Avisos Importantes</span></a></li>
+
 		<li><a href="#" class="speciallink"><img src="res/drawable-xhdpi/ic_message.png"><span>Mensajes de padres</span></a></li>
 	</ul>
 
@@ -63,7 +66,7 @@ if($now > $_SESSION['expire']){
 	<div>
 		<form action="" method='post'>
 		<br/> <div class='notasTabla'>
-			<ul class='list'>
+			<ul class='listtut'>
 				<li><span class='tittle' >Codigo Padre:</span></li>
 				<li><input type='text' class='conttnt inpts'name='codPadre' /> </li>
 				<li><span class='tittle' >Apellidos:</span></li>
@@ -73,9 +76,9 @@ if($now > $_SESSION['expire']){
 				<li><span class='tittle' >Contraseña:</span></li>
 				<li><input type='text' class='conttnt inpts'name='PadrePass' /> </li>
 
-				<input type='submit' class='bttns codbtn' title='Ingresar Padre' value='Aceptar'>
 			</ul>
 		</div>
+				<input type='submit' class='bttns codbtn' title='Ingresar Padre' value='Aceptar'>
 	</form>
 	</div>
 	<?php
@@ -85,6 +88,9 @@ if($now > $_SESSION['expire']){
  			$db = "id5209742_servertestdata";
 	
 	if(isset($_POST["codPadre"]) && isset($_POST["PadreLName"]) && isset($_POST["PadreUser"]) && isset($_POST["PadrePass"])){
+		if($_POST["codPadre"] == "" || $_POST["PadreLName"] == "" || $_POST["PadreUser"] == "" || $_POST["PadrePass"] == ""){
+			echo "Faltan algunos datos";
+		}else{
 
 		$codigo = $_POST["codPadre"];
 		$apellidos = $_POST["PadreLName"];
@@ -100,13 +106,13 @@ if($now > $_SESSION['expire']){
  		$result = $con->query($queryPadre);
 
  		if($result){
- 			header("Location: /padres.php");die();
+ 			header('Location: /padres.php');die();
  		}else{
  			echo "No se ingreso";
  		}
- 	
-	}else {
-		echo "Faltan algunos datos";
+ 	}
+	}else if(isset($_GET['new']) && $_GET['new'] == 1) {
+		echo "No deje ningun espacio sin llenar";
 	}
  
 

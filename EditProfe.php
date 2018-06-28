@@ -45,12 +45,16 @@ if($now > $_SESSION['expire']){
 
 		<li><a href="alumnos.php"><img src="res/drawable-xhdpi/ic_student_face.png"><span>Alumnos</span></a></li>
 		<li><a href="profesores.php"><img src="res/drawable-xhdpi/ic_teachers.png"><span>Profesores</span></a></li>
+		<li><a href="padres.php"><img src="res/drawable-xhdpi/ic_supervisor.png"><span>Padres</span></a></li>
+		<li><a href="clases.php"><img src="res/drawable-xhdpi/ic_book.png"><span>Clases</span></a></li>
 
-		<li><a href="reportes.html"><img src="res/drawable-xhdpi/ic_assignment.png"><span>Reportes</span></a></li>
+		<li><a href="reportes.php"><img src="res/drawable-xhdpi/ic_assignment.png"><span>Reportes</span></a></li>
 
 		<li><a href="cafeteria.php" class="special"><img src="res/drawable-xhdpi/ic_cafeteria.png"><span>Menu de la Cafeter&iacute;a</span></a></li>
-		
+
+
 		<li><a href="avisos.php" class="speciallink"><img src="res/drawable-xhdpi/ic_date_range.png"><span>Avisos Importantes</span></a></li>
+
 		<li><a href="#" class="speciallink"><img src="res/drawable-xhdpi/ic_message.png"><span>Mensajes de padres</span></a></li>
 	</ul>
 
@@ -86,7 +90,7 @@ if(isset($_GET["codProfe"])){
 
  		echo "<form action='updtProfe.php' method='post'>";
  		echo "<br/> <div class='notasTabla'>";
- 				echo "<ul class='list'>";
+ 				echo "<ul class='listprof'>";
  				
  				echo 	"<li><span class='tittle' >Codigo Catedratico:</span></li>";
  				echo 	"<li><span class='conttnt inpts'>$fila[Codigo_catedratico]</span> </li>";

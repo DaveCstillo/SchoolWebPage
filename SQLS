@@ -67,3 +67,9 @@ CREATE TABLE `id5209742_servertestdata`.`tareas_tresbasico` (`ID` INT NOT NULL A
 //Insertar en Tareas
 
 INSERT INTO `tareas_{$Grado}`(`codigo_Catedratico`, `Materia`, `Tarea`, `FechaEmision`, `FechaEntrega`) VALUES ('','','','','')
+
+
+
+//Insertar en Clases
+
+INSERT INTO `Clases`(`Codigo_clase`, `Nombre_Clase`, `catedratico_asignado`) VALUES ('','','')
