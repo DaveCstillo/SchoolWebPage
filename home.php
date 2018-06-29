@@ -50,7 +50,6 @@ if($now > $_SESSION['expire']){
 
 		<li><a href="tareas.php"><img src="res/drawable-xhdpi/ic_create.png"><span>Tareas</span></a></li>
 
-		<!-- <li><a href="horarios.html"><img src="res/drawable-xhdpi/ic_date_range.png"><span>Horarios</span></a></li> -->
 		<li><a href="#" class="speciallink"><img src="res/drawable-xhdpi/ic_message.png"><span>Mensajes de padres</span></a></li>
 	</ul>
 

@@ -33,7 +33,7 @@ if($now > $_SESSION['expire']){
 
 	<ul class="menuu">
 
-		<li class="account">
+			<li class="account">
 			<img src="res/drawable-xhdpi/ic_account_circle.png">
 			<span><?php session_start();
 						echo $_SESSION['user'];
@@ -41,19 +41,13 @@ if($now > $_SESSION['expire']){
 			</span>
 			<a href="logout.php">Log Out</a>
 		</li>
-		<li><a href="homeC.php"><img src="res/drawable-xhdpi/ic_home.png"><span>HOME</span></a></li>
+		<li><a href="home.php"><img src="res/drawable-xhdpi/ic_home.png"><span>HOME</span></a></li>
 
-		<li><a href="alumnos.php"><img src="res/drawable-xhdpi/ic_student_face.png"><span>Alumnos</span></a></li>
-		<li><a href="profesores.php"><img src="res/drawable-xhdpi/ic_teachers.png"><span>Profesores</span></a></li>
-		<li><a href="padres.php"><img src="res/drawable-xhdpi/ic_supervisor.png"><span>Padres</span></a></li>
-		<li><a href="clases.php"><img src="res/drawable-xhdpi/ic_book.png"><span>Clases</span></a></li>
+		<li><a href="notas.php"><img src="res/drawable-xhdpi/ic_book.png"><span>Notas</span></a></li>
 
 		<li><a href="#"><img src="res/drawable-xhdpi/ic_assignment.png"><span>Reportes</span></a></li>
 
-		<li><a href="cafeteria.php" class="special"><img src="res/drawable-xhdpi/ic_cafeteria.png"><span>Menu de la Cafeter&iacute;a</span></a></li>
-
-
-		<li><a href="avisos.php" class="speciallink"><img src="res/drawable-xhdpi/ic_date_range.png"><span>Avisos Importantes</span></a></li>
+		<li><a href="tareas.php"><img src="res/drawable-xhdpi/ic_create.png"><span>Tareas</span></a></li>
 
 		<li><a href="#" class="speciallink"><img src="res/drawable-xhdpi/ic_message.png"><span>Mensajes de padres</span></a></li>
 	</ul>
